@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 0.0.2
  * @package BuddyPress_Compliments
- * 
+ *
  * @param array|string $args {
  *    Attributes of the $args.
  *
@@ -59,7 +59,7 @@ function compliments_record_activity( $args = '' ) {
  *
  * @since 0.0.2
  * @package BuddyPress_Compliments
- * 
+ *
  * @param BP_Compliments $compliment The compliment object.
  */
 function compliments_record_sent_received_activity( BP_Compliments $compliment ) {
@@ -88,7 +88,7 @@ add_action( 'bp_compliments_start_compliment', 'compliments_record_sent_received
 
 /**
  * Register the activity actions for compliments.
- * 
+ *
  * @since 0.0.2
  * @package BuddyPress_Compliments
  */
@@ -165,19 +165,19 @@ function compliments_format_activity_action_compliment_received( $action, $activ
 
 
     if ($bp_compliment_can_see_others_comp == 'yes') {
-        $action = sprintf( __( '%1$s has received a %2$s from %3$s', 'bp-compliments' ), $receiver_link, $compliment_link, $sender_link );
+        $action = sprintf( __( '%1$s has been awarded an %2$s.', 'bp-compliments' ), $receiver_link, $compliment_link );
     } elseif ($bp_compliment_can_see_others_comp == 'members_only') {
         if (is_user_logged_in()) {
-            $action = sprintf( __( '%1$s has received a %2$s from %3$s', 'bp-compliments' ), $receiver_link, $compliment_link, $sender_link );
+            $action = sprintf( __( '%1$s has been awarded an %2$s.', 'bp-compliments' ), $receiver_link, $compliment_link );
         } else {
-            $action = sprintf( __( '%1$s has received a %2$s from %3$s', 'bp-compliments' ), $receiver_link, strtolower(BP_COMP_SINGULAR_NAME),  $sender_link );
+            $action = sprintf( __( '%1$s has been awarded an %2$s.', 'bp-compliments' ), $receiver_link, strtolower(BP_COMP_SINGULAR_NAME), );
         }
     } else {
-        $action = sprintf( __( '%1$s has received a %2$s from %3$s', 'bp-compliments' ), $receiver_link, strtolower(BP_COMP_SINGULAR_NAME),  $sender_link );
+        $action = sprintf( __( '%1$s has been awarded an %2$s', 'bp-compliments' ), $receiver_link, strtolower(BP_COMP_SINGULAR_NAME), );
     }
 
     /**
-     * Filters the 'compliment_received' activity action format.
+     * Filters the 'compliment_received' activity action format.  ----  %1$s has received an %2$s from %3$s
      *
      * @since 0.0.2
      *
@@ -224,16 +224,16 @@ function compliments_format_activity_action_compliment_sent( $action, $activity 
     }
 
 
-    if ($bp_compliment_can_see_others_comp == 'yes') {
-        $action = sprintf( __( '%1$s has sent a %2$s to %3$s', 'bp-compliments' ), $sender_link, $compliment_link, $receiver_link );
+    if ($bp_compliment_can_see_others_comp == 'yes') { /** $receiver_link, $compliment_link, strtolower(BP_COMP_SINGULAR_NAME) **/
+        $action = sprintf( __( '%1$s has awarded an %2$s', 'bp-compliments' ), $sender_link, $compliment_link );
     } elseif ($bp_compliment_can_see_others_comp == 'members_only') {
         if (is_user_logged_in()) {
-            $action = sprintf( __( '%1$s has sent a %2$s to %3$s', 'bp-compliments' ), $sender_link, $compliment_link, $receiver_link );
+            $action = sprintf( __( '%1$s has awarded an %2$s', 'bp-compliments' ), $sender_link, $compliment_link );
         } else {
-            $action = sprintf( __( '%1$s has sent a %2$s to %3$s', 'bp-compliments' ), $sender_link, strtolower(BP_COMP_SINGULAR_NAME), $receiver_link );
+            $action = sprintf( __( '%1$s has awarded an %2$s', 'bp-compliments' ), $sender_link, strtolower(BP_COMP_SINGULAR_NAME) );
         }
     } else {
-        $action = sprintf( __( '%1$s has sent a %2$s to %3$s', 'bp-compliments' ), $sender_link, strtolower(BP_COMP_SINGULAR_NAME), $receiver_link );
+        $action = sprintf( __( '%1$s has awarded an %2$s', 'bp-compliments' ), $sender_link, strtolower(BP_COMP_SINGULAR_NAME) );
     }
 
     /**
@@ -253,7 +253,7 @@ function compliments_format_activity_action_compliment_sent( $action, $activity 
  *
  * @since 0.0.2
  * @package BuddyPress_Compliments
- * 
+ *
  * @param int $c_id Compliment ID.
  */
 function compliments_delete_activity( $c_id ) {
@@ -273,7 +273,7 @@ add_action('bp_compliments_after_remove_compliment', 'compliments_delete_activit
  *
  * @since 0.0.2
  * @package BuddyPress_Compliments
- * 
+ *
  * @param int $user_id User ID.
  */
 function compliments_delete_activity_for_user( $user_id ) {
@@ -318,7 +318,7 @@ add_filter('bp_get_activity_show_filters_options', 'compliments_merge_filter', 1
 add_filter('compliments_format_activity_action_compliment_sent', 'bp_comp_add_compliment_received_content', 10, 2);
 add_filter('compliments_format_activity_action_compliment_received', 'bp_comp_add_compliment_received_content', 10, 2);
 function bp_comp_add_compliment_received_content($action, $activity) {
-    
+
     $display_comp_content = apply_filters('bp_comp_display_comp_content_in_activity', false);
     if (!$display_comp_content) {
         return $action;
@@ -334,7 +334,7 @@ function bp_comp_add_compliment_received_content($action, $activity) {
         $compliments_icon = str_replace('http://', 'https://', $compliments_icon);
     }
     $image = "<div class=\"comp-user-header\">";
-    $image .= '<img style="height: 20px; width: 20px; vertical-align:middle"
+    $image .= '<img style="height: 200px; width: 200px; vertical-align:middle"
               src="'.$compliments_icon.'"
               />';
     $image .= $term->name;

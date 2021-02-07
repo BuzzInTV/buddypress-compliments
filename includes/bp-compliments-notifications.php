@@ -201,15 +201,15 @@ function bp_compliments_new_compliment_email_notification($args = array()) {
 
     $receiver_ud = bp_core_get_core_userdata( $r['receiver_id'] );
 
-    // Set up and send the message
+    // Set up and send the message , BP_COMP_SINGULAR_NAME, $sender_name, BP_COMP_SINGULAR_NAME
     $to = $receiver_ud->user_email;
 
     $subject = '[' . wp_specialchars_decode( bp_get_option( 'blogname' ), ENT_QUOTES ) . '] ' . sprintf( __( '%s has sent you a %s',  'bp-compliments' ), $sender_name, BP_COMP_SINGULAR_NAME );
 
     $message = sprintf( __(
-        '%s has sent you a %s.
+        '%s has sent you an Accolade.
 
-To view %s\'s %s: %s', 'bp-compliments' ), $sender_name, BP_COMP_SINGULAR_NAME, $sender_name, BP_COMP_SINGULAR_NAME, $compliment_link );
+View the Accolades you have received: %s', 'bp-compliments' ), $sender_name, $compliment_link );
 
     // Add notifications link if settings component is enabled
     if ( bp_is_active( 'settings' ) ) {
@@ -217,7 +217,7 @@ To view %s\'s %s: %s', 'bp-compliments' ), $sender_name, BP_COMP_SINGULAR_NAME, 
         $message .= sprintf( __( '
 
 ---------------------
-To disable these notifications please log in and go to:
+To disable these notifications, visit Settings:
 %s', 'bp-compliments' ), $settings_link );
     }
 
@@ -339,7 +339,7 @@ function bp_compliments_screen_notification_settings() {
         <tbody>
         <tr>
             <td></td>
-            <td><?php echo sprintf( __( 'A member sends you a %s', 'bp-compliments' ), BP_COMP_SINGULAR_NAME); ?></td>
+            <td><?php echo sprintf( __( 'Receiving Accolades', 'bp-compliments' ), BP_COMP_SINGULAR_NAME); ?></td>
             <td class="yes"><input type="radio" name="notifications[notification_on_compliments]" value="yes" <?php checked( $notify, 'yes', true ) ?>/></td>
             <td class="no"><input type="radio" name="notifications[notification_on_compliments]" value="no" <?php checked( $notify, 'no', true ) ?>/></td>
         </tr>

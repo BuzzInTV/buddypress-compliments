@@ -57,17 +57,17 @@ function handle_compliments_form_data() {
             } else {
                 $insert_id = bp_compliments_start_compliment($args);
                 if ( ! $insert_id) {
-                    bp_core_add_message( sprintf( __( 'There was a problem when trying to send %s to %s, please contact administrator.', 'bp-compliments' ), strtolower(BP_COMP_SINGULAR_NAME), $receiver_name ), 'error' );
+                    bp_core_add_message( sprintf( __( 'An error occurred while sending this Accolade. Please contact the help desk for assistance.', 'bp-compliments' ), strtolower(BP_COMP_SINGULAR_NAME), $receiver_name ), 'error' );
                 } else {
-                    bp_core_add_message( sprintf( __( 'Your %s sent to %s.', 'bp-compliments' ), BP_COMP_SINGULAR_NAME, $receiver_name ) );
+                    bp_core_add_message( sprintf( __( 'Your Accolade was sent.', 'bp-compliments' ), BP_COMP_SINGULAR_NAME, $receiver_name ) );
                 }
             }
         } else {
             $insert_id = bp_compliments_start_compliment($args);
             if ( ! $insert_id) {
-                bp_core_add_message( sprintf( __( 'There was a problem when trying to send %s to %s, please contact administrator.', 'bp-compliments' ), strtolower(BP_COMP_SINGULAR_NAME), $receiver_name ), 'error' );
+                bp_core_add_message( sprintf( __( 'An error occurred while sending this Accolade. Please contact the help desk for assistance.', 'bp-compliments' ), strtolower(BP_COMP_SINGULAR_NAME), $receiver_name ), 'error' );
             } else {
-                bp_core_add_message( sprintf( __( 'Your %s sent to %s.', 'bp-compliments' ), BP_COMP_SINGULAR_NAME, $receiver_name ) );
+                bp_core_add_message( sprintf( __( 'Your Accolade was sent..', 'bp-compliments' ), BP_COMP_SINGULAR_NAME, $receiver_name ) );
             }
         }
 
@@ -217,4 +217,3 @@ function bp_comp_check_duplicate_comp($args) {
     $count = $wpdb->get_var($wpdb->prepare("select COUNT(id) from " . BP_COMPLIMENTS_TABLE . " where term_id= %d AND sender_id= %d AND receiver_id= %d", array($term_id, $sender_id, $receiver_id)));
     return $count;
 }
-

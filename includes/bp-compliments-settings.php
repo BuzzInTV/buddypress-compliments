@@ -14,7 +14,7 @@ function register_compliments_menu_page() {
 		'manage_options',
 		'bp-compliment-settings',
 		'bp_compliments_settings_page',
-		plugins_url( 'buddypress-compliments/images/smiley-icon.png' ),
+		plugins_url( 'buddypress-compliments/images/accolade_icon.png' ),
 		85
 	);
 }
@@ -226,7 +226,7 @@ function bp_comp_settings_submenu_page_show_screen_content() {
 			?>
 			<div id="message" class="updated">
 				<p>
-					<?php echo __('Setting updated successfully.', 'bp-compliments'); ?>
+					<?php echo __('Settings updated successfully.', 'bp-compliments'); ?>
 				</p>
 			</div>
 			<?php
@@ -240,17 +240,17 @@ function bp_comp_settings_submenu_page_show_screen_content() {
 		<table class="profile-settings">
 			<thead>
 			<tr>
-				<th class="title" colspan="2"><?php echo __('Compliments Settings', 'bp-compliments'); ?></th>
+				<th class="title" colspan="2"><?php echo __('Accolades Settings', 'bp-compliments'); ?></th>
 			</tr>
 			</thead>
 			<tbody>
 			<tr>
-				<td class="field-name"><label><?php echo __('Who can see your compliment page?', 'bp-compliments'); ?></label></td>
+				<td class="field-name"><label><?php echo __('Privacy', 'bp-compliments'); ?></label></td>
 				<td class="field-visibility">
 					<select id="bp_compliment_can_see_your_comp" class="bp-xprofile-visibility" name="bp_compliment_can_see_your_comp">
-						<option value="yes" <?php selected( $bp_compliment_can_see_your_comp, 'yes' ); ?>><?php echo __( 'Anybody', 'bp-compliments' ); ?></option>
-						<option value="no" <?php selected( $bp_compliment_can_see_your_comp, 'no' ); ?>><?php echo __( 'Nobody', 'bp-compliments' ); ?></option>
-						<option value="members_only" <?php selected( $bp_compliment_can_see_your_comp, 'members_only' ); ?>><?php echo __( 'Members Only', 'bp-compliments' ); ?></option>
+						<option value="yes" <?php selected( $bp_compliment_can_see_your_comp, 'yes' ); ?>><?php echo __( 'Everyone', 'bp-compliments' ); ?></option>
+						<option value="members_only" <?php selected( $bp_compliment_can_see_your_comp, 'members_only' ); ?>><?php echo __( 'Players only', 'bp-compliments' ); ?></option>
+						<option value="no" <?php selected( $bp_compliment_can_see_your_comp, 'no' ); ?>><?php echo __( 'No one', 'bp-compliments' ); ?></option>
 					</select>
 				</td>
 			</tr>

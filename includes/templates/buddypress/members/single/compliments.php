@@ -81,7 +81,7 @@ do_action('bp_before_member_' . bp_current_action() . '_content'); ?>
                                 $compliments_icon = str_replace('http://', 'https://', $compliments_icon);
                             }
                             ?>
-                              <img style="height: 20px; width: 20px; vertical-align:middle"
+                              <img style="height: 200px; width: 200px; vertical-align:middle"
                                    src='<?php echo $compliments_icon; ?>'
                                    class='preview-upload'/>
                               <?php echo $term->name; ?>
@@ -177,13 +177,13 @@ do_action('bp_before_member_' . bp_current_action() . '_content'); ?>
         if (bp_displayed_user_id() == bp_loggedin_user_id()) {
             ?>
             <div id="message" class="bp-no-compliments info">
-                <p><?php echo sprintf( __( 'Aw, you have no %1$s yet. To get some try sending %1$s to others.', 'bp-compliments' ), BP_COMP_SINGULAR_NAME ); ?></p>
+                <p><?php echo sprintf( __( 'No accolades earned yet.', 'bp-compliments' ), BP_COMP_SINGULAR_NAME ); ?></p>
             </div>
         <?php
         } else {
             ?>
             <div id="message" class="bp-no-compliments info">
-                <p><?php echo sprintf( __( 'Sorry, no %1$s just yet.', 'bp-compliments' ), BP_COMP_PLURAL_NAME ); ?></p>
+                <p><?php echo sprintf( __( 'No accolades earned yet.', 'bp-compliments' ), BP_COMP_PLURAL_NAME ); ?></p>
             </div>
         <?php
         }

@@ -94,7 +94,7 @@ function compliments_taxonomy_add_new_meta_field() {
         <input id="comp-icon-upload" type="button" data-uploader_title="<?php echo __( 'Upload Icon' , 'bp-compliments' ); ?>" data-uploader_button_text="<?php echo __( 'Use Icon' , 'bp-compliments' ); ?>" class="image_upload_button button" value="<?php echo __( 'Upload new Icon' , 'bp-compliments' ); ?>" />
         <input id="comp-icon-delete" type="button" class="image_delete_button button" value="<?php echo __( 'Remove Icon' , 'bp-compliments' ); ?>" />
         <br/>
-        <p><?php echo __( 'Recommended icon size: 20px x 20px' , 'bp-compliments' ); ?></p>
+        <p><?php echo __( 'Recommended icon size: 200px x 200px' , 'bp-compliments' ); ?></p>
     </div>
 <?php
     bp_compliments_taxonomy_highlight_js();
@@ -121,7 +121,7 @@ function compliments_taxonomy_edit_meta_field($term) {
                 <input id="comp-icon-upload" type="button" data-uploader_title="<?php echo __( 'Upload Icon' , 'bp-compliments' ); ?>" data-uploader_button_text="<?php echo __( 'Use Icon' , 'bp-compliments' ); ?>" class="image_upload_button button" value="<?php echo __( 'Upload new Icon' , 'bp-compliments' ); ?>" />
                 <input id="comp-icon-delete" type="button" class="image_delete_button button" value="<?php echo __( 'Remove Icon' , 'bp-compliments' ); ?>" />
                 <br/>
-                <p><?php echo __( 'Recommended icon size: 20px x 20px' , 'bp-compliments' ); ?></p>
+                <p><?php echo __( 'Recommended icon size: 200px x 200px' , 'bp-compliments' ); ?></p>
             </span>
         </td>
     </tr>

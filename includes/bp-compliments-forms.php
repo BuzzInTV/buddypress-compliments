@@ -22,9 +22,9 @@ function bp_compliments_modal_form($pid = 0, $receiver_id = 0 ) {
     ?>
     <div class="comp-modal">
         <div class="comp-modal-content-wrap">
-            <span class="comp-close-x dashicons dashicons-no" title="<?php _e( 'Close Lightbox', 'bp-compliments' ); ?>" aria-action="close"></span>
+            <span class="comp-close-x dashicons dashicons-no" title="<?php _e( 'Close', 'bp-compliments' ); ?>" aria-action="close"></span>
             <div class="comp-modal-title">
-                <h2><?php echo sprintf( __( 'Choose Your %s Type:', 'bp-compliments' ), BP_COMP_SINGULAR_NAME ); ?></h2>
+                <h2><?php echo sprintf( __( 'Choose an Accolade to send.', 'bp-compliments' ), BP_COMP_SINGULAR_NAME ); ?></h2>
             </div>
             <div class="comp-modal-content">
                <form action="" method="post">
@@ -55,7 +55,7 @@ function bp_compliments_modal_form($pid = 0, $receiver_id = 0 ) {
                         }
                         echo '</ul>';
                         ?>
-                        <textarea placeholder="<?php echo __( 'Type your message here', 'bp-compliments' ); ?>" name="message" maxchar="1000"></textarea>
+                        <textarea disabled="disabled" hidden placeholder="<?php echo __( 'Include an optional message.', 'bp-compliments' ); ?>" name="message" maxchar="280"></textarea>
                         <input type="hidden" name="post_id" value="<?php echo $pid; ?>"/>
                         <input type="hidden" name="receiver_id" value="<?php echo absint( $receiver_id ); ?>"/>
                         <?php wp_nonce_field( 'handle_compliments_form_data','handle_compliments_nonce' ); ?>

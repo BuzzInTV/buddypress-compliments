@@ -7,7 +7,7 @@
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name: BuddyPress Compliments
+ * Plugin Name: BuzzIn Accolades (BP Compliments)
  * Plugin URI: https://appwp.io/
  * Description: Compliments module for BuddyPress.
  * Version: 1.0.9
@@ -144,7 +144,7 @@ function bp_compliments_activate() {
         dbDelta( $sql );
         update_option( 'bp_compliments_version', BP_COMPLIMENTS_VER );
     }
-    
+
     add_option( 'bp_compliments_activation_redirect', 1 );
 }
 
